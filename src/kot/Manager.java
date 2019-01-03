@@ -41,7 +41,7 @@ public class Manager {
 				"-| Hi Sir ! What you want |- \n\t1 - Invoice Detials \n\t2 - Meanage Customer Bill Statement \n\t0 - main manu");
 		System.out.println(
 				"-----------------------------------------------------------------------------------------------------");
-		String type = scan.nextLine();
+		String type = scan.next();
 		
 		switch (type) {
 		case "1":
@@ -90,7 +90,7 @@ public class Manager {
 	 private void confirmTheBill() {
 
 		 System.out.println("Enter The Invoice ID :");
-		 String InVID = scan.nextLine();
+		 String InVID = scan.next();
 		 
 		 Connection conn = null;
 		 PreparedStatement getInvoice;

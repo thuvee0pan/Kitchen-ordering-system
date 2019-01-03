@@ -24,7 +24,7 @@ public class Kitchen {
 				"-| Hi Sir ! What you want |- \n\t1 - Take Order \n\t0 - main manu");
 		System.out.println(
 				"-----------------------------------------------------------------------------------------------------");
-		String type = scan.nextLine();
+		String type = scan.next();
 		
 		switch (type) {
 		case "1":
@@ -98,7 +98,7 @@ public class Kitchen {
 	private void takeTheOrder() {
 		
 		System.out.println("-| What order Do you want to take? |- \n\t Enter the order ID:- ");
-		orderID = scan.nextLine();
+		orderID = scan.next();
 		Connection conn = null;
 		PreparedStatement psc;
 		ResultSet rsc;

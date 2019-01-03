@@ -48,7 +48,7 @@ public class Waiter {
 		System.out.println("\t1 - get New Order \n\t2 - View Order Status \n\t3 - Edit  or Deleten Order  \n\t4 - Make Invoice \n\t5 - Print Bill \n\t0 main Manu");
 		System.out.println(
 				"-----------------------------------------------------------------------------------------------------");
-		String type = scan.nextLine();
+		String type = scan.next();
 		
 		switch (type) {
 		case "1":
@@ -113,7 +113,7 @@ public class Waiter {
 	}
 	private void UpdateOrder() {
 		System.out.println("-| What you want to do?  |- \n\t1 - Edit Order \n\t2 - Delete Order \n\t0 - Back to Manu");
-		String inp = scan.nextLine();
+		String inp = scan.next();
 		
 		switch (inp) {
 		case "1":
@@ -151,7 +151,7 @@ public class Waiter {
 			String query = "Select * FROM orders where id = ?";
 			System.out.println("-| What order Do you want to cancel? |- \n\t ID :-   \n\t0 - Back to Manu");
 
-			String ID = scan.nextLine();
+			String ID = scan.next();
 			if (ID == "0") {
 				start();
 			}else {
@@ -226,11 +226,11 @@ public class Waiter {
 
 	private void getOrder() {
 		order();
-		System.out.println("-| Order ID : | "+getOid() );
-		System.out.println("-| Table Name: | "+getTableName());
+//		System.out.println("-| Order ID : | "+getOid() );
+//		System.out.println("-| Table Name: | "+getTableName());
 
 		System.out.println("-| Are You Want to Buy Another Food Item ? |- \n\t1 - yes \n\t2 - No ");
-		String order = scan.nextLine();
+		String order = scan.next();
 		switch (order) {
 		case "1":
 			order();
@@ -243,17 +243,17 @@ public class Waiter {
 			System.err.println("----------------------------------------------");
 			System.err.println("|XXXXX| Please Select Correct Option ! |XXXXX|");
 			System.err.println("----------------------------------------------");
-
 			getOrder();
 			break;
 		}
 	}
 	private void order() {
 
-		System.out.println("-| Order ID : | "+getOid() );
-		System.out.println("-| Table Name: | "+getTableName());
+//		System.out.println("-| Order ID : | "+getOid() );
+//		System.out.println("-| Table Name: | "+getTableName());
+		System.out.println();
 		System.out.print("-| Food ID :- ");
-		String id = scan.nextLine();
+		String id = scan.next();
 		
 		ResultSet rsc;
 		PreparedStatement psc;
@@ -280,7 +280,7 @@ public class Waiter {
 
 			} else {
 
-				System.out.print("-| How Many You Want From Selected Food Item " + id + " :- ");
+				System.out.print("-| How Many You Want ");
 				int oqty = scan.nextInt();
 
 				ResultSet rs;
@@ -340,7 +340,7 @@ public class Waiter {
 
 			} 
 			}	catch (SQLException e) {
-		
+				e.printStackTrace();
 			}
 
 }
@@ -420,7 +420,7 @@ public class Waiter {
 			DBTablePrinter.printPendingOrderWithID(conn, "kot.`orders`");
 			String query = "Select * FROM orders where id = ?";
 			System.out.println("-| What order Do you want to edit? |- \n\t ID :-   \n\t0 - Back to Manu");
-			String ID = scan.nextLine();
+			String ID = scan.next();
 
 			if (ID == "0") {
 				start();
@@ -491,7 +491,7 @@ public class Waiter {
 			// TODO: handle exception
 		}
     	System.out.println("Enter The orderID for the invoice ?");
-    	String orderID = scan.nextLine();
+    	String orderID = scan.next();
     	
     	String orderSQL = "SELECT * FROM `orders` WHERE `OrderId` = ?";
     	String invoiceSql = "INSERT INTO `invoice`(`tableName`, `orderId`, `totalAmount`, `serviceTax`,`date`) VALUES (?,?,?,?,?)";
@@ -571,7 +571,7 @@ public class Waiter {
 			e.printStackTrace();
 		}
     	System.out.println("Enter The invoice ID: ");
-    	String ID = scan.nextLine();
+    	String ID = scan.next();
     	PreparedStatement getinvoice;
     	ResultSet invoice;
     	String InvoiceSQL="SELECT * FROM `invoice` WHERE `id` = ?";

@@ -34,22 +34,22 @@ public static void getUser() {
 	System.out.println("\t1 - Waiter \n\t2 - KitchenStaff \n\t3 - ManagementStaff \n\t0 - Close");
 	System.out.println(
 			"-----------------------------------------------------------------------------------------------------");
-	int type = scan.nextInt();
+	String type = scan.next();
 	
 	switch (type) {
-	case 1:
+	case "1":
 		Waiter waiter = new Waiter();
 		waiter.start();
 		break;
-	case 2:
+	case "2":
 		Kitchen k = new Kitchen();
 		k.start();
 		break;
-	case 3:
+	case "3":
 		Manager m = new Manager();
 		m.start();
 		break;
-	case 0:
+	case "0":
 		System.exit(0);
 		break;
 	default:
