@@ -230,8 +230,8 @@ public class Waiter {
 //		System.out.println("-| Table Name: | "+getTableName());
 
 		System.out.println("-| Are You Want to Buy Another Food Item ? |- \n\t1 - yes \n\t2 - No ");
-		String order = scan.next();
-		switch (order) {
+		String s = scan.next();
+		switch (s) {
 		case "1":
 			order();
 			break;
@@ -523,6 +523,7 @@ public class Waiter {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+    	start();
     	
     	
     }

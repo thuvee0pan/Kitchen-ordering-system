@@ -138,10 +138,9 @@ public class Kitchen {
 	}
 	private void foodIsReady() {
 		System.out.println("-| lets update the system when the order is "+ orderID + "ready ? |- \n\t 1 - yes ");
-		int status = scan.nextInt();
-		if (status == 1 ) {
-			System.out.println(status);
-
+		String status = scan.next();
+		switch (status) {
+		case "1":
 			Connection conn = null;
 			try {
 				conn = DB_Connection.getConnection();
@@ -154,11 +153,35 @@ public class Kitchen {
 				}catch (SQLException e) {
 				      e.printStackTrace();
 			    }
-		}else {
+			break;
+
+		default:
 			System.err.println("----------------------------------------------");
 			System.err.println("|XXXXX| Please Select Correct Option ! |XXXXX|");
 			System.err.println("----------------------------------------------");
 			foodIsReady();
+			break;
 		}
+//		if (status == 1 ) {
+//			System.out.println(status);
+//
+//			Connection conn = null;
+//			try {
+//				conn = DB_Connection.getConnection();
+//				Statement stmt = conn.createStatement();
+//
+//				String sql = "UPDATE `orders` SET `status`='done' WHERE `OrderId` = '"+orderID+"'";
+//			    stmt.executeUpdate(sql);
+//			    System.out.println("Order status updated  successfully ");
+//			    start();
+//				}catch (SQLException e) {
+//				      e.printStackTrace();
+//			    }
+//		}else {
+//			System.err.println("----------------------------------------------");
+//			System.err.println("|XXXXX| Please Select Correct Option ! |XXXXX|");
+//			System.err.println("----------------------------------------------");
+//			foodIsReady();
+//		}
 	}
 }
